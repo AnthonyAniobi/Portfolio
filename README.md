@@ -1,9 +1,16 @@
-<h1>Travel App</h1>
-<p>This is a mobile application for travel agencies. This is an application template which provides information about travel destinations including flight information and events</p>
+# portfolio
 
-<h4>Index page of the application1</h4><br>
-<img src="_screenshots/list1.png" width="200"><br><br>
-<h4>Index page of the application2</h4><br>
-<img src="_screenshots/list2.png" width="200"><br><br>
-<h4>Detail page for each hotel</h4><br>
-<img src="_screenshots/detail1.png" width="200"><br>
+A new Flutter project.
+
+## Getting Started
+
+This project is a starting point for a Flutter application.
+
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
