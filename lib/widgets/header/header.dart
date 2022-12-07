@@ -62,7 +62,7 @@ class _HeaderDesign extends StatelessWidget {
             decoration: BoxDecoration(
               image: DecorationImage(
                 colorFilter: ColorFilter.mode(
-                    Colors.black.withOpacity(0.7), BlendMode.color),
+                    Colors.blue.withOpacity(0.7), BlendMode.color),
                 image: const AssetImage(_image),
                 fit: BoxFit.cover,
               ),
@@ -77,7 +77,7 @@ class _HeaderDesign extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                       color: AppColors.white),
                 ),
-                const SizedBox(width: 20.0),
+                SizedBox(width: padding / 4),
                 DefaultTextStyle(
                   style: TextStyle(
                       fontSize: fontSize,
