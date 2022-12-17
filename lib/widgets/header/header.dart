@@ -2,6 +2,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/util/constants/app_colors.dart';
 import 'package:portfolio/util/constants/app_images.dart';
+import 'package:portfolio/util/constants/app_sizes.dart';
 
 const String _image = AppImages.codeBg;
 
@@ -11,14 +12,14 @@ class HeaderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
-      if (constraints.maxWidth < 500) {
+      if (constraints.maxWidth < AppSizes.maxMobile) {
         // mobile header
         return const _HeaderDesign(
           aspectRatio: 1,
           padding: 20,
           fontSize: 40,
         );
-      } else if (constraints.maxWidth < 1100) {
+      } else if (constraints.maxWidth < AppSizes.maxTablet) {
         // tablet header
         return const _HeaderDesign(
           aspectRatio: 2,

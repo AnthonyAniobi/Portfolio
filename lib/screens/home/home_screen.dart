@@ -1,6 +1,8 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/widgets/about/about.dart';
 import 'package:portfolio/widgets/header/header.dart';
+import 'package:portfolio/widgets/skills/skills.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -12,7 +14,9 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            HeaderWidget(),
+            const HeaderWidget(),
+            const AboutWidget(),
+            const SkillsWidget(),
             SizedBox(
               width: 300.0,
               child: DefaultTextStyle(
