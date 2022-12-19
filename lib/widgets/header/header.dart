@@ -110,7 +110,7 @@ class _HeaderDesign extends StatelessWidget {
                   ),
                 ),
                 Align(
-                  alignment: Alignment(1, 0),
+                  alignment: Alignment(0.98, 0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
