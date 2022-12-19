@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/util/constants/app_colors.dart';
 import 'package:provider/provider.dart';
 
 class ThemeColorProvider extends ChangeNotifier {
-  Color color = Colors.blue;
+  int selectedIndex = 1;
 
   static ThemeColorProvider of(BuildContext context, {bool listen = true}) =>
       Provider.of<ThemeColorProvider>(context, listen: listen);
 
-  void changeColor(Color color) {
-    this.color = color;
+  Color get color => AppColors.primaryColors[selectedIndex];
+
+  void setColorIndex(int index) {
+    selectedIndex = index;
     notifyListeners();
   }
 }

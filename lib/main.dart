@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/screens/home/home_screen.dart';
+import 'package:portfolio/screens/home/home.dart';
 import 'package:portfolio/util/models/theme_color_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:url_strategy/url_strategy.dart';

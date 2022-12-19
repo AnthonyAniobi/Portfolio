@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/util/constants/app_images.dart';
 import 'package:portfolio/util/models/project_model.dart';
 import 'package:portfolio/util/models/theme_color_provider.dart';
-import 'package:portfolio/util/ui/text_styles.dart';
+import 'package:portfolio/util/constants/app_text_style.dart';
 
 class ProjectsWidget extends StatelessWidget {
   const ProjectsWidget({super.key});
