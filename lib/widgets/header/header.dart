@@ -69,36 +69,54 @@ class _HeaderDesign extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                 ),
-                Align(
-                    alignment: const Alignment(-1, -0.4),
-                    child: Text(
-                      'Hello I am Anthony!',
-                      style: AppTextStyle.primary(context, color: Colors.white),
-                    )),
-                Align(
-                  alignment: Alignment(0, 0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.only(left: padding),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
                       Text(
-                        'I Build',
-                        style: AppTextStyle.title(context, color: Colors.white),
+                        'Hello I am Anthony!',
+                        style:
+                            AppTextStyle.primary(context, color: Colors.white),
                       ),
-                      SizedBox(width: padding / 4),
-                      DefaultTextStyle(
-                        style: AppTextStyle.title(context, color: Colors.white),
-                        child: AnimatedTextKit(
-                          repeatForever: true,
-                          animatedTexts: [
-                            RotateAnimatedText('ANDROID'),
-                            RotateAnimatedText('IOS'),
-                            RotateAnimatedText('FLUTTER'),
+                      SizedBox(
+                        height: padding,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: <Widget>[
+                            Text(
+                              'I Build',
+                              style: AppTextStyle.title(context,
+                                  color: Colors.white),
+                            ),
+                            SizedBox(width: padding / 4),
+                            DefaultTextStyle(
+                              style: AppTextStyle.title(context,
+                                  color: Colors.white),
+                              child: AnimatedTextKit(
+                                repeatForever: true,
+                                animatedTexts: [
+                                  RotateAnimatedText('ANDROID'),
+                                  RotateAnimatedText('IOS'),
+                                  RotateAnimatedText('FLUTTER'),
+                                ],
+                                onTap: () {
+                                  print("Tap Event");
+                                },
+                              ),
+                            ),
                           ],
-                          onTap: () {
-                            print("Tap Event");
-                          },
                         ),
                       ),
+                      SizedBox(height: padding / 2),
+                      Row(
+                        children: [
+                          PrimaryButton(title: 'About me', onPressed: () {}),
+                          SizedBox(width: padding),
+                          PrimaryButton(title: 'My Works', onPressed: () {}),
+                        ],
+                      )
                     ],
                   ),
                 ),
@@ -114,12 +132,6 @@ class _HeaderDesign extends StatelessWidget {
                         (index) => colorCircles(context, index)),
                   ),
                 ),
-                Align(
-                  alignment: const Alignment(-1, 1),
-                  child: Row(
-                    children: [PrimaryButton()],
-                  ),
-                )
               ],
             ),
           ),
@@ -160,29 +172,76 @@ class _HeaderDesign extends StatelessWidget {
 class PrimaryButton extends StatelessWidget {
   const PrimaryButton({
     Key? key,
+    required this.title,
+    required this.onPressed,
+  }) : super(key: key);
+
+  final String title;
+  final Function onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        onPressed();
+      },
+      child: Container(
+        width: AppSizes.bigButtonWidth(context),
+        height: AppSizes.bigButtonHeight(context),
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(AppSizes.buttonRadius(context)),
+            color: AppColors
+                .secondaryColors[ThemeColorProvider.of(context).selectedIndex],
+            boxShadow: [
+              BoxShadow(
+                  color: AppColors.primaryColors[
+                          ThemeColorProvider.of(context).selectedIndex]
+                      .withOpacity(0.5),
+                  blurRadius: 5,
+                  offset: const Offset(0, 0.2))
+            ]),
+        child: Text(
+          title,
+          style: AppTextStyle.bodyTitle(context),
+        ),
+      ),
+    );
+  }
+}
+
+class SecondaryButton extends StatelessWidget {
+  const SecondaryButton({
+    Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: AppSizes.bigButtonWidth(context),
-      height: AppSizes.bigButtonHeight(context),
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(AppSizes.buttonRadius(context)),
-          color: AppColors
-              .secondaryColors[ThemeColorProvider.of(context).selectedIndex],
-          boxShadow: [
-            BoxShadow(
-                color: AppColors
-                    .primaryColors[ThemeColorProvider.of(context).selectedIndex]
-                    .withOpacity(0.5),
-                blurRadius: 5,
-                offset: const Offset(0, 0.2))
-          ]),
-      child: Text(
-        'About me',
-        style: AppTextStyle.bodyTitle(context),
+    return InkWell(
+      onTap: () {},
+      child: Container(
+        width: AppSizes.bigButtonWidth(context),
+        height: AppSizes.bigButtonHeight(context),
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(AppSizes.buttonRadius(context)),
+            color: Colors.white.withOpacity(0.5),
+            boxShadow: [
+              BoxShadow(
+                  color: AppColors.primaryColors[
+                          ThemeColorProvider.of(context).selectedIndex]
+                      .withOpacity(0.5),
+                  blurRadius: 5,
+                  offset: const Offset(0, 0.2))
+            ],
+            border: Border.all(
+                width: AppSizes.buttonRadius(context) / 2,
+                color: AppColors.primaryColors[
+                    ThemeColorProvider.of(context).selectedIndex])),
+        child: Text(
+          'About me',
+          style: AppTextStyle.bodyTitle(context),
+        ),
       ),
     );
   }
