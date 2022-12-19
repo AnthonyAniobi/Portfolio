@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/util/constants/app_sizes.dart';
 import 'package:portfolio/util/models/skill_category.dart';
+import 'package:portfolio/util/models/theme_color_provider.dart';
 import 'package:portfolio/util/ui/flex_align.dart';
 
 class SkillsWidget extends StatelessWidget {
@@ -13,8 +14,9 @@ class SkillsWidget extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
-          children:
-              SkillCategory.category.map((e) => skillCategory(e)).toList(),
+          children: SkillCategory.category
+              .map((e) => skillCategory(context, e))
+              .toList(),
         );
       } else {
         return Padding(
@@ -23,7 +25,7 @@ class SkillsWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: SkillCategory.category
-                .map((e) => Expanded(child: skillCategory(e)))
+                .map((e) => Expanded(child: skillCategory(context, e)))
                 .toList(),
           ),
         );
@@ -31,7 +33,7 @@ class SkillsWidget extends StatelessWidget {
     });
   }
 
-  Widget skillCategory(SkillCategory category) {
+  Widget skillCategory(BuildContext context, SkillCategory category) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: Column(
@@ -51,7 +53,7 @@ class SkillsWidget extends StatelessWidget {
                         height: 15,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
-                          color: Colors.red,
+                          color: ThemeColorProvider.of(context).color,
                         ),
                       ),
                       const SizedBox(height: 20),

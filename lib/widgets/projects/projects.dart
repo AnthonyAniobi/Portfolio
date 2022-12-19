@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/util/constants/app_images.dart';
+import 'package:portfolio/util/models/project_model.dart';
 
-class PortfolioWidget extends StatelessWidget {
-  const PortfolioWidget({super.key});
+class ProjectsWidget extends StatelessWidget {
+  const ProjectsWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,17 +19,18 @@ class PortfolioWidget extends StatelessWidget {
           mainAxisSpacing: 10,
           childAspectRatio: 1.2,
         ),
-        itemCount: 4,
+        itemCount: ProjectModel.all.length,
         itemBuilder: (context, index) {
+          ProjectModel project = ProjectModel.all[index];
           return Container(
             decoration: BoxDecoration(
               color: Colors.white,
               image: DecorationImage(
-                  image: AssetImage(AppImages.codeBg), fit: BoxFit.cover),
+                  image: NetworkImage(project.imageUrl), fit: BoxFit.cover),
               borderRadius: BorderRadius.circular(8),
               boxShadow: [
                 BoxShadow(
-                  offset: const Offset(5, 5),
+                  // offset: const Offset(5, 5),
                   color: Colors.black.withOpacity(0.25),
                   blurRadius: 8,
                 )

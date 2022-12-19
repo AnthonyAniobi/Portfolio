@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/widgets/about/about.dart';
 import 'package:portfolio/widgets/experience/experience.dart';
 import 'package:portfolio/widgets/header/header.dart';
-import 'package:portfolio/widgets/portfolio/portfolio.dart';
+import 'package:portfolio/widgets/projects/projects.dart';
 import 'package:portfolio/widgets/skills/skills.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -20,7 +20,7 @@ class HomeScreen extends StatelessWidget {
             AboutWidget(),
             ExperienceWidget(),
             SkillsWidget(),
-            PortfolioWidget(),
+            ProjectsWidget(),
             // SizedBox(
             //   width: 300.0,
             //   child: DefaultTextStyle(
