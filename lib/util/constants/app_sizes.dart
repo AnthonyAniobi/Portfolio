@@ -13,6 +13,9 @@ class AppSizes {
   static double buttonRadius(BuildContext context) =>
       _responsiveSize(context, 4, 5, 8);
 
+  static double skillModelSize(BuildContext context) =>
+      _responsiveSize(context, 100, 150, 300);
+
   static double _responsiveSize(
       BuildContext context, double mobile, double tablet, double desktop) {
     double size = MediaQuery.of(context).size.width;

@@ -7,6 +7,7 @@ import 'package:portfolio/util/constants/app_sizes.dart';
 import 'package:portfolio/util/models/theme_color_provider.dart';
 import 'package:portfolio/util/constants/app_text_style.dart';
 import 'package:portfolio/widgets/app_buttons.dart';
+import 'package:portfolio/widgets/color_picker.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -129,13 +130,9 @@ class _HeaderDesign extends StatelessWidget {
                     ],
                   ),
                 ),
-                Align(
-                  alignment: const Alignment(0.98, 0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: List.generate(AppColors.primaryColors.length,
-                        (index) => colorCircles(context, index)),
-                  ),
+                const Align(
+                  alignment: Alignment(0.98, 0),
+                  child: ColorPickerWidget(),
                 ),
               ],
             ),
@@ -143,33 +140,5 @@ class _HeaderDesign extends StatelessWidget {
         ],
       ),
     ));
-  }
-
-  Widget colorCircles(BuildContext context, int index) {
-    double size = MediaQuery.of(context).size.width;
-    if (size < 500) {
-      size = size / 10;
-    } else {
-      size = size / 20;
-    }
-    return InkWell(
-      onTap: () {
-        ThemeColorProvider.of(context, listen: false).setColorIndex(index);
-      },
-      child: Container(
-        width: size,
-        height: size,
-        decoration: BoxDecoration(
-          border: ThemeColorProvider.of(context).selectedIndex == index
-              ? Border.all(
-                  width: 7,
-                  color: Colors.white,
-                  strokeAlign: StrokeAlign.outside)
-              : null,
-          shape: BoxShape.circle,
-          color: AppColors.primaryColors[index],
-        ),
-      ),
-    );
   }
 }

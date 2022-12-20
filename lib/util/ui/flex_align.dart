@@ -28,11 +28,7 @@ class FlexAlign {
 
   static Flex _align({required Axis axis, required List<Widget> children}) {
     return axis == Axis.horizontal
-        ? Row(
-            children: children.map((e) => Expanded(child: e)).toList(),
-          )
-        : Column(
-            children: children,
-          );
+        ? Row(children: children)
+        : Column(children: children);
   }
 }
