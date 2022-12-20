@@ -1,5 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/util/app_router.dart';
 import 'package:portfolio/util/constants/app_colors.dart';
 import 'package:portfolio/util/constants/app_images.dart';
 import 'package:portfolio/util/constants/app_sizes.dart';
@@ -113,23 +114,25 @@ class _HeaderDesign extends StatelessWidget {
                       Row(
                         children: [
                           AppButtons.primary(
-                              title: 'About me', onPressed: () {}),
+                              title: 'About me',
+                              onPressed: () {
+                                Navigator.pushNamed(context, AppRouter.about);
+                              }),
                           SizedBox(width: padding),
                           AppButtons.primary(
-                              title: 'My Works', onPressed: () {}),
+                              title: 'My Works',
+                              onPressed: () {
+                                Navigator.pushNamed(context, AppRouter.myWorks);
+                              }),
                         ],
                       )
                     ],
                   ),
                 ),
                 Align(
-                  alignment: Alignment(0.98, 0),
+                  alignment: const Alignment(0.98, 0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    // children:
-                    //     AppColors.primaryColors.mapIndexed(((index, element) {
-                    //   return colorCircles(context, index);
-                    // })).toList(),
                     children: List.generate(AppColors.primaryColors.length,
                         (index) => colorCircles(context, index)),
                   ),

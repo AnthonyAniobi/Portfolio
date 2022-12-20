@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/screens/home/home.dart';
+import 'package:portfolio/util/app_router.dart';
 import 'package:portfolio/util/models/theme_color_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:url_strategy/url_strategy.dart';
 
 void main() {
   setPathUrlStrategy();
-  runApp(ListenableProvider(
-      create: (context) => ThemeColorProvider(), child: MyApp()));
+  runApp(
+    ListenableProvider(
+      create: (context) => ThemeColorProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -21,7 +25,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomeScreen(),
+      initialRoute: AppRouter.home,
+      routes: AppRouter.routes,
     );
   }
 }
