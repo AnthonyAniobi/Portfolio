@@ -11,7 +11,7 @@ class AppSizes {
       _responsiveSize(context, 40, 60, 70);
 
   static double buttonRadius(BuildContext context) =>
-      _responsiveSize(context, 4, 5, 10);
+      _responsiveSize(context, 4, 5, 8);
 
   static double _responsiveSize(
       BuildContext context, double mobile, double tablet, double desktop) {
