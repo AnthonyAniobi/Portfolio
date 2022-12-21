@@ -3,46 +3,59 @@ import 'package:portfolio/util/constants/app_sizes.dart';
 
 class AppTextStyle {
   static TextStyle primary(BuildContext context,
-      {Color? color, String? family}) {
+      {Color? color, String? family, TextDecoration? decoration}) {
     return _textStyles(
         context,
         20,
         30,
         50,
         TextStyle(
-            fontWeight: FontWeight.bold, color: color, fontFamily: family));
+            fontWeight: FontWeight.bold,
+            color: color,
+            fontFamily: family,
+            decoration: decoration));
   }
 
-  static TextStyle title(BuildContext context, {Color? color, String? family}) {
+  static TextStyle title(BuildContext context,
+      {Color? color, String? family, TextDecoration? decoration}) {
     return _textStyles(
         context,
         30,
         50,
         90,
         TextStyle(
-            fontWeight: FontWeight.bold, color: color, fontFamily: family));
+            fontWeight: FontWeight.bold,
+            color: color,
+            fontFamily: family,
+            decoration: decoration));
   }
 
   static TextStyle medium(BuildContext context,
-      {Color? color, String? family}) {
+      {Color? color, String? family, TextDecoration? decoration}) {
     return _textStyles(
         context,
         12,
         16,
-        30,
+        18,
         TextStyle(
-            fontWeight: FontWeight.normal, color: color, fontFamily: family));
+            fontWeight: FontWeight.normal,
+            color: color,
+            fontFamily: family,
+            decoration: decoration));
   }
 
   static TextStyle bodyTitle(BuildContext context,
-      {Color? color, String? family}) {
+      {Color? color, String? family, TextDecoration? decoration}) {
     return _textStyles(
         context,
         16,
         20,
         32,
         TextStyle(
-            fontWeight: FontWeight.bold, color: color, fontFamily: family));
+            fontWeight: FontWeight.bold,
+            color: color,
+            fontFamily: family,
+            decoration: decoration));
   }
 
   static TextStyle _textStyles(BuildContext context, double mobile,

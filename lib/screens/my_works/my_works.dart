@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/screens/my_works/widgets/buttom_widget.dart';
+import 'package:portfolio/screens/my_works/widgets/experience_card.dart';
 import 'package:portfolio/screens/my_works/widgets/top_widget.dart';
 import 'package:portfolio/util/constants/app_colors.dart';
 import 'package:portfolio/util/constants/app_sizes.dart';
@@ -25,9 +26,16 @@ class MyWorksScreen extends StatelessWidget {
                     return Column(
                       children: [
                         const Expanded(child: TopWidget()),
-                        SizedBox(
+                        Container(
                           height: AppSizes.skillModelSize(context),
-                          child: const ButtomWidget(),
+                          color: AppColors.secondaryColors[
+                              ThemeColorProvider.of(context).selectedIndex],
+                          child: Expanded(
+                            child: ListView(
+                              scrollDirection: Axis.horizontal,
+                              children: _buttomWidgets(context),
+                            ),
+                          ),
                         ),
                       ],
                     );
@@ -35,9 +43,16 @@ class MyWorksScreen extends StatelessWidget {
                     return Row(
                       children: [
                         const Expanded(child: TopWidget()),
-                        SizedBox(
+                        Container(
                           width: AppSizes.skillModelSize(context),
-                          child: const ButtomWidget(),
+                          color: AppColors.secondaryColors[
+                              ThemeColorProvider.of(context).selectedIndex],
+                          child: Expanded(
+                            child: ListView(
+                              scrollDirection: Axis.vertical,
+                              children: _buttomWidgets(context),
+                            ),
+                          ),
                         ),
                       ],
                     );
@@ -51,5 +66,13 @@ class MyWorksScreen extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  List<Widget> _buttomWidgets(BuildContext context) {
+    return List.generate(
+        20,
+        (index) => ExperienceCard(
+              index: index,
+            ));
   }
 }

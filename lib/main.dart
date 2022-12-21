@@ -1,18 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/screens/my_works/my_works.dart';
 import 'package:portfolio/util/app_router.dart';
+import 'package:portfolio/util/models/my_works_provider.dart';
 import 'package:portfolio/util/models/theme_color_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:url_strategy/url_strategy.dart';
 
 void main() {
   setPathUrlStrategy();
-  runApp(
-    ListenableProvider(
-      create: (context) => ThemeColorProvider(),
-      child: const MyApp(),
-    ),
-  );
+  runApp(MultiProvider(
+    providers: [
+      ListenableProvider(create: (context) => ThemeColorProvider()),
+      ListenableProvider(create: (context) => MyWorksProvider()),
+    ],
+    child: const MyApp(),
+  ));
+  // runApp(
+  //   ListenableProvider(
+  //     create: (context) => ThemeColorProvider(),
+  //     child: const MyApp(),
+  //   ),
+  // );
 }
 
 class MyApp extends StatelessWidget {
@@ -26,9 +34,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      // initialRoute: AppRouter.home,
-      // routes: AppRouter.routes,
-      home: MyWorksScreen(),
+      initialRoute: AppRouter.home,
+      routes: AppRouter.routes,
     );
   }
 }
