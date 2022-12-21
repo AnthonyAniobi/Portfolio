@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/screens/my_works/my_works.dart';
 import 'package:portfolio/util/app_router.dart';
 import 'package:portfolio/util/models/theme_color_provider.dart';
 import 'package:provider/provider.dart';
@@ -25,8 +26,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: AppRouter.home,
-      routes: AppRouter.routes,
+      // initialRoute: AppRouter.home,
+      // routes: AppRouter.routes,
+      home: MyWorksScreen(),
     );
   }
 }
