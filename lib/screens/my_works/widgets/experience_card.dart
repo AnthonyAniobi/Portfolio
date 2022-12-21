@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/util/constants/app_colors.dart';
 import 'package:portfolio/util/constants/app_sizes.dart';
 import 'package:portfolio/util/constants/app_text_style.dart';
+import 'package:portfolio/util/models/my_works_provider.dart';
+import 'package:portfolio/util/models/project_model.dart';
 import 'package:portfolio/util/models/theme_color_provider.dart';
 
 class ExperienceCard extends StatefulWidget {
@@ -18,10 +20,19 @@ class ExperienceCard extends StatefulWidget {
 
 class _ExperienceCardState extends State<ExperienceCard> {
   bool isHover = false;
+  late ProjectModel project;
+  @override
+  void initState() {
+    super.initState();
+    project = ProjectModel.all[widget.index];
+  }
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        MyWorksProvider.of(context, listen: false).updateIndex(widget.index);
+      },
       onHover: (value) {
         setState(() {
           isHover = value;
@@ -34,11 +45,12 @@ class _ExperienceCardState extends State<ExperienceCard> {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(AppSizes.buttonRadius(context)),
             image: DecorationImage(
-              colorFilter: widget.index == 1
-                  ? null
-                  : ColorFilter.mode(
-                      Colors.black.withOpacity(0.5), BlendMode.darken),
-              image: AssetImage('assets/naruto.png'),
+              colorFilter:
+                  widget.index == MyWorksProvider.of(context).selectedIndex
+                      ? null
+                      : ColorFilter.mode(
+                          Colors.black.withOpacity(0.5), BlendMode.darken),
+              image: NetworkImage(project.imageUrl),
               fit: BoxFit.cover,
             ),
             border: isHover
@@ -54,15 +66,20 @@ class _ExperienceCardState extends State<ExperienceCard> {
                   offset: const Offset(0, 1))
             ]),
         child: Center(
-          child: widget.index == 1
+          child: widget.index == MyWorksProvider.of(context).selectedIndex
               ? null
-              : Text(
-                  'title ${widget.index}',
-                  style: AppTextStyle.medium(context,
-                      color: isHover
-                          ? AppColors.primaryColors[
-                              ThemeColorProvider.of(context).selectedIndex]
-                          : Colors.white),
+              : Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: AppSizes.buttonRadius(context)),
+                  child: Text(
+                    project.name,
+                    textAlign: TextAlign.center,
+                    style: AppTextStyle.medium(context,
+                        color: isHover
+                            ? AppColors.primaryColors[
+                                ThemeColorProvider.of(context).selectedIndex]
+                            : Colors.white),
+                  ),
                 ),
         ),
       ),

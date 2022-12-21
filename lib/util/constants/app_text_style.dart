@@ -31,14 +31,17 @@ class AppTextStyle {
   }
 
   static TextStyle medium(BuildContext context,
-      {Color? color, String? family, TextDecoration? decoration}) {
+      {Color? color,
+      String? family,
+      TextDecoration? decoration,
+      FontWeight? fontWeight}) {
     return _textStyles(
         context,
         12,
         16,
         18,
         TextStyle(
-            fontWeight: FontWeight.normal,
+            fontWeight: fontWeight ?? FontWeight.normal,
             color: color,
             fontFamily: family,
             decoration: decoration));

@@ -4,6 +4,7 @@ import 'package:portfolio/screens/my_works/widgets/experience_card.dart';
 import 'package:portfolio/screens/my_works/widgets/top_widget.dart';
 import 'package:portfolio/util/constants/app_colors.dart';
 import 'package:portfolio/util/constants/app_sizes.dart';
+import 'package:portfolio/util/models/project_model.dart';
 import 'package:portfolio/util/models/theme_color_provider.dart';
 import 'package:portfolio/util/ui/flex_align.dart';
 import 'package:portfolio/widgets/color_picker.dart';
@@ -70,7 +71,7 @@ class MyWorksScreen extends StatelessWidget {
 
   List<Widget> _buttomWidgets(BuildContext context) {
     return List.generate(
-        20,
+        ProjectModel.all.length,
         (index) => ExperienceCard(
               index: index,
             ));
