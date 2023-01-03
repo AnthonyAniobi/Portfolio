@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/screens/about/about.dart';
 import 'package:portfolio/screens/home/home.dart';
 import 'package:portfolio/screens/my_works/my_works.dart';
+import 'package:portfolio/screens/my_works_dialog/my_works_dialog.dart';
 import 'package:portfolio/screens/slideshow/slideshow.dart';
 
 class AppRouter {
@@ -13,7 +14,7 @@ class AppRouter {
   static Map<String, Widget Function(BuildContext)> routes = {
     home: (context) => const HomeScreen(),
     about: (context) => const AboutScreen(),
-    myWorks: (context) => const MyWorksScreen(),
+    myWorks: (context) => const MyWorksDialog(), //MyWorksScreen(),
     slideShow: (context) => const SlideshowScreen(),
   };
 }
