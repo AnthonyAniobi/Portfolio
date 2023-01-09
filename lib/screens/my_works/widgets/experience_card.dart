@@ -10,9 +10,11 @@ class ExperienceCard extends StatefulWidget {
   const ExperienceCard({
     Key? key,
     required this.index,
+    this.onTap,
   }) : super(key: key);
 
   final int index;
+  final Function? onTap;
 
   @override
   State<ExperienceCard> createState() => _ExperienceCardState();
@@ -32,6 +34,9 @@ class _ExperienceCardState extends State<ExperienceCard> {
     return InkWell(
       onTap: () {
         MyWorksProvider.of(context, listen: false).updateIndex(widget.index);
+        if (widget.onTap != null) {
+          widget.onTap!();
+        }
       },
       onHover: (value) {
         setState(() {

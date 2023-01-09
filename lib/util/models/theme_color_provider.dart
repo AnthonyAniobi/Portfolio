@@ -14,4 +14,12 @@ class ThemeColorProvider extends ChangeNotifier {
     selectedIndex = index;
     notifyListeners();
   }
+
+  Color primaryColor() {
+    return AppColors.primaryColors[selectedIndex];
+  }
+
+  Color secondaryColor() {
+    return AppColors.secondaryColors[selectedIndex];
+  }
 }

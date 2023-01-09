@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/util/constants/app_colors.dart';
 import 'package:provider/provider.dart';
 
 class MyWorksProvider extends ChangeNotifier {
@@ -10,5 +11,13 @@ class MyWorksProvider extends ChangeNotifier {
   void updateIndex(int index) {
     selectedIndex = index;
     notifyListeners();
+  }
+
+  Color primaryColor() {
+    return AppColors.primaryColors[selectedIndex];
+  }
+
+  Color secondaryColor() {
+    return AppColors.secondaryColors[selectedIndex];
   }
 }
