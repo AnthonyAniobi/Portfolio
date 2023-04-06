@@ -1,41 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/screens/my_works/my_works.dart';
+import 'package:portfolio/screens/home/home_screen.dart';
 import 'package:portfolio/util/app_router.dart';
-import 'package:portfolio/util/models/my_works_provider.dart';
-import 'package:portfolio/util/models/theme_color_provider.dart';
+import 'package:portfolio/util/models/nav_index_provider.dart';
+import 'package:portfolio/widgets/screen_background.dart';
 import 'package:provider/provider.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:url_strategy/url_strategy.dart';
 
 void main() {
   setPathUrlStrategy();
   runApp(MultiProvider(
     providers: [
-      ListenableProvider(create: (context) => ThemeColorProvider()),
-      ListenableProvider(create: (context) => MyWorksProvider()),
+      ListenableProvider(create: (context) => NavIndexProvider()),
     ],
     child: const MyApp(),
   ));
-  // runApp(
-  //   ListenableProvider(
-  //     create: (context) => ThemeColorProvider(),
-  //     child: const MyApp(),
-  //   ),
-  // );
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Portfolio web',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      initialRoute: AppRouter.home,
-      routes: AppRouter.routes,
-    );
+    return ResponsiveSizer(builder: (context, orientation, screenType) {
+      return MaterialApp(
+        title: 'Portfolio web',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        navigatorKey: AppRouter.navigatorKey,
+        builder: (context, child) => ScreenBackground(child: child!),
+        initialRoute: AppRouter.home,
+        routes: AppRouter.routes,
+      );
+    });
   }
 }
