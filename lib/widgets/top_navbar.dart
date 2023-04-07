@@ -16,26 +16,29 @@ class TopNavbar extends StatefulWidget {
 class _TopNavbarState extends State<TopNavbar> {
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Image.asset(
-          "assets/images/logo.png",
-          color: Colors.white,
-          height: 3.w,
-          fit: BoxFit.contain,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            navLink("Home", context, AppRouter.home),
-            navLink("Work Experience", context, AppRouter.workExperience),
-            navLink("Personal Projects", context, AppRouter.personalProjects),
-            navLink("Education", context, AppRouter.education),
-          ],
-        )
-      ],
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 4.w),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Image.asset(
+            "assets/images/logo.png",
+            color: Colors.white,
+            height: 3.w,
+            fit: BoxFit.contain,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              navLink("Home", context, AppRouter.home),
+              navLink("Work Experience", context, AppRouter.workExperience),
+              navLink("Personal Projects", context, AppRouter.personalProjects),
+              navLink("Education", context, AppRouter.education),
+            ],
+          )
+        ],
+      ),
     );
   }
 
@@ -48,7 +51,7 @@ class _TopNavbarState extends State<TopNavbar> {
         });
       },
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 2.w),
+        padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 2.w),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,6 +61,7 @@ class _TopNavbarState extends State<TopNavbar> {
               style: TextStyle(
                 color: AppColors.white,
                 fontSize: 13.sp,
+                fontWeight: FontWeight.w600,
               ),
             ),
             if (AppRouter.currentRoute == routeName)
