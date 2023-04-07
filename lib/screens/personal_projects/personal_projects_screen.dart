@@ -35,7 +35,7 @@ class PersonalProjectsScreen extends StatelessWidget {
                 itemCount: ProjectModel.all.length,
                 itemBuilder: (context, index) => ProjectCard(
                       leftSide: index % 2 == 0,
-                      project: ProjectModel.all[index],
+                      projectIndex: index,
                     )),
           ),
         ],

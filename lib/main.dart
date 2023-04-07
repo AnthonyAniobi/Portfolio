@@ -5,10 +5,8 @@ import 'package:portfolio/util/models/nav_index_provider.dart';
 import 'package:portfolio/widgets/screen_background.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:url_strategy/url_strategy.dart';
 
 void main() {
-  setPathUrlStrategy();
   runApp(MultiProvider(
     providers: [
       ListenableProvider(create: (context) => NavIndexProvider()),

@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/screens/personal_projects/widgets/project_description.dart';
+import 'package:portfolio/util/app_router.dart';
 import 'package:portfolio/util/models/project_model.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class ProjectCard extends StatelessWidget {
-  const ProjectCard({super.key, required this.leftSide, required this.project});
+  const ProjectCard(
+      {super.key, required this.leftSide, required this.projectIndex});
   final bool leftSide;
-  final ProjectModel project;
+  final int projectIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +28,13 @@ class ProjectCard extends StatelessWidget {
       child: AspectRatio(
         aspectRatio: 25 / 9,
         child: InkWell(
-          onTap: () {},
+          onTap: () {
+            AppRouter.moveTo('${AppRouter.personalProjects}/$projectIndex');
+          },
           child: Row(
             children: [
-              if (leftSide) ProjectDescription(project: project),
+              if (leftSide)
+                ProjectDescription(project: ProjectModel.all[projectIndex]),
               AspectRatio(
                 aspectRatio: 1,
                 child: Container(
@@ -41,7 +46,8 @@ class ProjectCard extends StatelessWidget {
                               left: Radius.circular(3.w))),
                 ),
               ),
-              if (!leftSide) ProjectDescription(project: project),
+              if (!leftSide)
+                ProjectDescription(project: ProjectModel.all[projectIndex]),
             ],
           ),
         ),
