@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/screens/personal_projects/single_project_screen.dart';
 import 'package:portfolio/util/app_enums.dart';
 import 'package:portfolio/util/app_extensions.dart';
 import 'package:portfolio/util/app_router.dart';
@@ -128,10 +129,12 @@ class ResultsTile extends StatelessWidget {
             children: results
                 .map((e) => e.toWidget(() {
                       if (e.location == DeployedLocation.preview) {
-                        AppRouter.moveTo(
-                            "${AppRouter.personalProjects}/${e.imageLink}");
+                        AppRouter.navigatorKey.currentState!.push(
+                            MaterialPageRoute(
+                                builder: (_) =>
+                                    SingleProjectScreen(id: e.appLink)));
                       } else {
-                        launchUrl(Uri.parse(e.imageLink));
+                        launchUrl(Uri.parse(e.appLink));
                       }
                     }))
                 .toList(),

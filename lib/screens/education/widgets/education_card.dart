@@ -12,12 +12,16 @@ class EducationCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double margin;
+    double circleSize;
     if (Device.width < 500) {
       margin = 4.w;
+      circleSize = 15.w;
     } else if (Device.height >= 500 && Device.width < 750) {
       margin = 10.w;
+      circleSize = 20.h;
     } else {
       margin = 12.w;
+      circleSize = 15.h;
     }
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: margin),
@@ -30,8 +34,8 @@ class EducationCard extends StatelessWidget {
             )
           ],
           Container(
-            width: 20.h,
-            height: 20.h,
+            width: circleSize,
+            height: circleSize,
             decoration: BoxDecoration(
               color: Colors.green,
               shape: BoxShape.circle,

@@ -6,6 +6,8 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 class WorkExperienceScreen extends StatelessWidget {
   const WorkExperienceScreen({super.key});
 
+  static String routeName = '/experience';
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(

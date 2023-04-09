@@ -7,6 +7,8 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 class EducationScreen extends StatelessWidget {
   const EducationScreen({super.key});
 
+  static String routeName = '/education';
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(

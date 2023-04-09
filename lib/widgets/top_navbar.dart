@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/screens/education/education_screen.dart';
+import 'package:portfolio/screens/home/home_screen.dart';
+import 'package:portfolio/screens/personal_projects/personal_projects_screen.dart';
+import 'package:portfolio/screens/work_experience/work_experience_screen.dart';
 import 'package:portfolio/util/app_router.dart';
 import 'package:portfolio/util/constants/app_colors.dart';
+import 'package:portfolio/util/fluro_router.dart';
 import 'package:portfolio/util/models/nav_index_provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -31,10 +36,12 @@ class _TopNavbarState extends State<TopNavbar> {
             mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              navLink("Home", context, AppRouter.home),
-              navLink("Work Experience", context, AppRouter.workExperience),
-              navLink("Personal Projects", context, AppRouter.personalProjects),
-              navLink("Education", context, AppRouter.education),
+              navLink("Home", context, HomeScreen.routeName),
+              navLink(
+                  "Work Experience", context, WorkExperienceScreen.routeName),
+              navLink("Personal Projects", context,
+                  PersonalProjectsScreen.routeName),
+              navLink("Education", context, EducationScreen.routeName),
             ],
           )
         ],
@@ -42,12 +49,12 @@ class _TopNavbarState extends State<TopNavbar> {
     );
   }
 
-  Widget navLink(String text, BuildContext context, routeName) {
+  Widget navLink(String text, BuildContext context, String routeName) {
     return InkWell(
       onTap: () {
         setState(() {
           // update navbar text
-          AppRouter.moveTo(routeName);
+          Flurorouter.moveTo(routeName);
         });
       },
       child: Padding(
@@ -60,11 +67,11 @@ class _TopNavbarState extends State<TopNavbar> {
               text,
               style: TextStyle(
                 color: AppColors.white,
-                fontSize: 13.sp,
+                fontSize: 12.sp,
                 fontWeight: FontWeight.w600,
               ),
             ),
-            if (AppRouter.currentRoute == routeName)
+            if (Flurorouter.currentRoute == routeName)
               Container(
                 color: Colors.orange,
                 width: 5.w,

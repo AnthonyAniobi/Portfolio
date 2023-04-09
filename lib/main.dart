@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/screens/home/home_screen.dart';
 import 'package:portfolio/util/app_router.dart';
+import 'package:portfolio/util/fluro_router.dart';
 import 'package:portfolio/util/models/nav_index_provider.dart';
 import 'package:portfolio/widgets/screen_background.dart';
 import 'package:provider/provider.dart';
@@ -11,12 +12,14 @@ void main() {
     providers: [
       ListenableProvider(create: (context) => NavIndexProvider()),
     ],
-    child: const MyApp(),
+    child: MyApp(),
   ));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key}) {
+    Flurorouter.setupRouter();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +31,8 @@ class MyApp extends StatelessWidget {
         ),
         navigatorKey: AppRouter.navigatorKey,
         builder: (context, child) => ScreenBackground(child: child!),
-        initialRoute: AppRouter.home,
-        routes: AppRouter.routes,
+        initialRoute: '/',
+        onGenerateRoute: Flurorouter.router.generator,
       );
     });
   }

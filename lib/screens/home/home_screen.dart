@@ -6,6 +6,8 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
+  static String routeName = '/';
+
   @override
   Widget build(BuildContext context) {
     return Padding(

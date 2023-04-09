@@ -30,11 +30,11 @@ class Experience {
             url: '',
             links: [
               ImageLinkModel(
-                  imageLink: 'https://www.google.com',
+                  appLink: 'https://www.google.com',
                   appName: 'Hala',
                   location: DeployedLocation.playstore),
               ImageLinkModel(
-                  imageLink: '',
+                  appLink: '',
                   appName: 'Hala',
                   location: DeployedLocation.appstore),
             ],
@@ -47,8 +47,8 @@ class Experience {
             url: '',
             links: [
               ImageLinkModel(
-                  imageLink: '1',
-                  appName: 'Hala',
+                  appLink: '0',
+                  appName: 'Star Conference',
                   location: DeployedLocation.preview),
             ],
             currentlyWorking: true,
@@ -60,7 +60,7 @@ class Experience {
             url: '',
             links: [
               ImageLinkModel(
-                  imageLink: '1',
+                  appLink: '1',
                   appName: 'InsuranceApp',
                   location: DeployedLocation.preview),
             ],
@@ -73,15 +73,15 @@ class Experience {
             url: '',
             links: [
               ImageLinkModel(
-                  imageLink: '',
+                  appLink: '',
                   appName: 'Gatepass',
                   location: DeployedLocation.playstore),
               ImageLinkModel(
-                  imageLink: '',
+                  appLink: '2',
                   appName: 'Scoutbet',
                   location: DeployedLocation.preview),
               ImageLinkModel(
-                  imageLink: '',
+                  appLink: '3',
                   appName: 'Tenant App',
                   location: DeployedLocation.preview),
             ],

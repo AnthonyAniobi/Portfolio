@@ -30,10 +30,12 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   cupertino_icons: ^1.0.2
+  fluro: ^2.0.5
   flutter:
     sdk: flutter
   provider: ^6.0.5
   responsive_sizer: ^3.1.1
+  flutter_staggered_grid_view: ^0.6.2
   url_launcher: ^6.1.10
 
 dev_dependencies:
