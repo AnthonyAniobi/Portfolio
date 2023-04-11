@@ -35,7 +35,7 @@ class WorkExperienceScreen extends StatelessWidget {
           Expanded(
             child: ListView.separated(
                 itemBuilder: (context, index) =>
-                    ExperienceCard(experience: Experience.all()[index]),
+                    ExperienceCard(experience: Experience.all[index]),
                 separatorBuilder: (context, index) => RotatedBox(
                       quarterTurns: 1,
                       child: Image.asset(
@@ -44,7 +44,7 @@ class WorkExperienceScreen extends StatelessWidget {
                         color: Colors.white,
                       ),
                     ),
-                itemCount: Experience.all().length),
+                itemCount: Experience.all.length),
           ),
         ],
       ),

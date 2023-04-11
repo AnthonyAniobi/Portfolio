@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:portfolio/screens/personal_projects/single_project_screen.dart';
 import 'package:portfolio/screens/personal_projects/widgets/project_card.dart';
+import 'package:portfolio/util/fluro_router.dart';
 import 'package:portfolio/util/models/project_model.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -54,8 +56,14 @@ class PersonalProjectsScreen extends StatelessWidget {
                       .mapIndexed((index, project) => StaggeredGridTile.count(
                           crossAxisCellCount: 2,
                           mainAxisCellCount: isExpanded(index) ? 3 : 2,
-                          child: ProjectTile(
-                            project: project,
+                          child: InkWell(
+                            onTap: () {
+                              Flurorouter.moveTo(
+                                  "${SingleProjectScreen.routeName}/$index");
+                            },
+                            child: ProjectTile(
+                              project: project,
+                            ),
                           )))
                       .toList(),
                 ),
@@ -92,7 +100,10 @@ class ProjectTile extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 2.h, vertical: 3.h),
         decoration: BoxDecoration(
           color: Colors.white,
-          // image: DecorationImage(image: NetworkImage(project.imageUrl)),
+          image: DecorationImage(
+              image: NetworkImage(project.previewImage),
+              fit: BoxFit.cover,
+              opacity: 0.6),
           borderRadius: BorderRadius.circular(2.h),
         ),
         child: Padding(
@@ -106,6 +117,7 @@ class ProjectTile extends StatelessWidget {
               fontFamily: 'AbrilFatface',
             ),
           ),
+          // child: Image.network(project.previewImage),
         ));
   }
 }

@@ -2,7 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class SkillWidget extends StatelessWidget {
-  const SkillWidget({super.key});
+  SkillWidget({super.key});
+
+  final List<String> skills = [
+    "Flutter",
+    "SwiftUI",
+    "Jetpack Compose",
+    "Firebase",
+    "CI/CD",
+    "Api Integrations",
+  ];
+  final List<String> moreSkills = [
+    "SQLite",
+    "MongoDb",
+    "Hive",
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -53,12 +67,25 @@ class SkillWidget extends StatelessWidget {
                 SizedBox(height: 2.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Expanded(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [Text("Hello world")],
+                        children: skills
+                            .map((e) => Padding(
+                                  padding: EdgeInsets.symmetric(vertical: .2.h),
+                                  child: Text(
+                                    e,
+                                    style: TextStyle(
+                                      fontSize: 14.sp,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.grey.shade800,
+                                    ),
+                                  ),
+                                ))
+                            .toList(),
                       ),
                     ),
                     SizedBox(width: 1.w),
@@ -66,7 +93,19 @@ class SkillWidget extends StatelessWidget {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [Text("Hello world")],
+                        children: moreSkills
+                            .map((e) => Padding(
+                                  padding: EdgeInsets.symmetric(vertical: .2.h),
+                                  child: Text(
+                                    e,
+                                    style: TextStyle(
+                                      fontSize: 14.sp,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.grey.shade800,
+                                    ),
+                                  ),
+                                ))
+                            .toList(),
                       ),
                     ),
                   ],

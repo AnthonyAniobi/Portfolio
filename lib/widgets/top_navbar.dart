@@ -26,11 +26,16 @@ class _TopNavbarState extends State<TopNavbar> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Image.asset(
-            "assets/images/logo.png",
-            color: Colors.white,
-            height: 3.w,
-            fit: BoxFit.contain,
+          InkWell(
+            onTap: () {
+              Flurorouter.moveTo(HomeScreen.routeName);
+            },
+            child: Image.asset(
+              "assets/images/logo.png",
+              color: Colors.white,
+              height: 3.w,
+              fit: BoxFit.contain,
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,

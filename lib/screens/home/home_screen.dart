@@ -20,19 +20,19 @@ class HomeScreen extends StatelessWidget {
               if (Device.width < 500) {
                 // mobile header
                 return Column(
-                  children: const [AboutWidget(), SkillWidget()],
+                  children: [const AboutWidget(), SkillWidget()],
                 );
               } else if (Device.width >= 500 && Device.width < 750) {
                 // tablet header
                 return Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: const [AboutWidget(), SkillWidget()],
+                  children: [const AboutWidget(), SkillWidget()],
                 );
               } else {
                 // tablet header
                 return Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: const [AboutWidget(), SkillWidget()],
+                  children: [const AboutWidget(), SkillWidget()],
                 );
               }
             }),

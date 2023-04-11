@@ -80,6 +80,8 @@ extension DeployLocationToImageUrl on DeployedLocation {
         return "assets/icons/code_file.png";
       case DeployedLocation.preview:
         return "assets/icons/preview.png";
+      case DeployedLocation.pubdev:
+        return "assets/icons/dart.png";
     }
   }
 
@@ -95,6 +97,8 @@ extension DeployLocationToImageUrl on DeployedLocation {
         return "Get the app Here";
       case DeployedLocation.preview:
         return "Preview the result Here";
+      case DeployedLocation.pubdev:
+        return "Get the package";
     }
   }
 
@@ -110,6 +114,8 @@ extension DeployLocationToImageUrl on DeployedLocation {
         return Colors.white;
       case DeployedLocation.preview:
         return Colors.white;
+      case DeployedLocation.pubdev:
+        return Colors.white;
     }
   }
 
@@ -124,6 +130,8 @@ extension DeployLocationToImageUrl on DeployedLocation {
       case DeployedLocation.external:
         return Colors.black;
       case DeployedLocation.preview:
+        return Colors.black;
+      case DeployedLocation.pubdev:
         return Colors.black;
     }
   }

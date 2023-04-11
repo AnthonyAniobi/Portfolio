@@ -6,7 +6,16 @@ class AboutWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double size;
+    if (Device.width < 500) {
+      size = 60.w;
+    } else if (Device.width >= 500 && Device.width < 750) {
+      size = 45.w;
+    } else {
+      size = 50.h;
+    }
     return SizedBox(
+      width: size,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -19,7 +28,7 @@ class AboutWidget extends StatelessWidget {
                 color: Colors.white,
                 fontFamily: 'AbrilFatface'),
           ),
-          SizedBox(height: 3.h),
+          SizedBox(height: 2.5.h),
           Text(
             "Senior Mobile Developer",
             style: TextStyle(
@@ -28,12 +37,15 @@ class AboutWidget extends StatelessWidget {
                 color: Colors.white,
                 fontFamily: 'AbrilFatface'),
           ),
-          SizedBox(height: 3.h),
+          SizedBox(height: 2.h),
           Text(
-            "Senior Mobile Developer",
+            """
+5 years experience as a programmer with 4 years as a mobile developer with experience building both native and crossplatform mobile applications.
+I am conversant with building native applications in Kotlin and Swift as well as in crossplatform framework like flutter.
+""",
             style: TextStyle(
-              fontSize: 12.5.sp,
-              fontWeight: FontWeight.w400,
+              fontSize: 13.sp,
+              fontWeight: FontWeight.w500,
               color: Colors.white,
             ),
           ),

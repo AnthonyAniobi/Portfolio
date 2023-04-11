@@ -37,8 +37,15 @@ class EducationCard extends StatelessWidget {
             width: circleSize,
             height: circleSize,
             decoration: BoxDecoration(
-              color: Colors.green,
+              color: Colors.white,
               shape: BoxShape.circle,
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(circleSize / 2),
+              child: Image.network(
+                education.imageUrl,
+                fit: BoxFit.scaleDown,
+              ),
             ),
           ),
           if (!leftSide) ...[

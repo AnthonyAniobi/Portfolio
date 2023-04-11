@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/util/models/education_model.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class EducationInfo extends StatelessWidget {
   const EducationInfo({
@@ -25,7 +26,7 @@ class EducationInfo extends StatelessWidget {
               text: education.school,
               style: TextStyle(fontSize: 16.sp, fontFamily: 'AbrilFatface'),
               children: [
-                if (education.isOnline)
+                if (education.certificateUrl != null)
                   TextSpan(
                     text: "  (Online)",
                     style: TextStyle(
@@ -45,6 +46,21 @@ class EducationInfo extends StatelessWidget {
                           fontSize: 12.sp, fontWeight: FontWeight.w700)),
                 ]),
           ),
+          if (education.certificateUrl != null)
+            InkWell(
+              onTap: () {
+                launchUrl(Uri.parse(education.certificateUrl!));
+              },
+              child: Text(
+                "Certificate",
+                style: TextStyle(
+                  fontSize: 12.sp,
+                  color: Colors.blue,
+                  decoration: TextDecoration.underline,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
         ],
       ),
     );

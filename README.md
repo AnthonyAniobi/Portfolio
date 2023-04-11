@@ -1,9 +1,13 @@
 # Potfolio Website
 
-My portfolio websit running on flutter web
+My portfolio website built using flutter web
 
 ## Preview
-<img src='screenshots/screen_record.gif' width='500' height='400'>
+<img src='screenshots/home_screen.png' width='400'>
+<img src='screenshots/education_screen.png' width='400'>
+<img src='screenshots/experience_screen.png' width='400'>
+<img src='screenshots/project_screen.png' width='400'>
+<img src='screenshots/single_project_screen.png' width='400'>
 
 ## Design credits
 
@@ -18,6 +22,5 @@ My portfolio websit running on flutter web
 <a target="_blank" href="https://icons8.com/icon/37927/code-file">Code File</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
 
 ## Features
--[ ] Lazy loading
--[ ] Animated Texts
--[ ] Interactive Widgets
+- [ ] Lazy loading
+- [x] Interactive Widgets

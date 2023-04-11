@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/screens/home/home_screen.dart';
 import 'package:portfolio/util/app_router.dart';
 import 'package:portfolio/util/fluro_router.dart';
 import 'package:portfolio/util/models/nav_index_provider.dart';
@@ -25,7 +24,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveSizer(builder: (context, orientation, screenType) {
       return MaterialApp(
-        title: 'Portfolio web',
+        title: 'Portfolio',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),

@@ -4,8 +4,10 @@ import 'package:portfolio/util/app_enums.dart';
 import 'package:portfolio/util/app_extensions.dart';
 import 'package:portfolio/util/app_router.dart';
 import 'package:portfolio/util/constants/app_colors.dart';
+import 'package:portfolio/util/fluro_router.dart';
 import 'package:portfolio/util/models/experience_model.dart';
 import 'package:portfolio/util/models/image_link_model.dart';
+import 'package:portfolio/util/models/project_model.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -80,17 +82,23 @@ class ResponsibilitiesTile extends StatelessWidget {
           ),
           ...experience.description
               .map((e) => Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Icon(
-                        Icons.circle,
-                        size: 1.h,
+                      Padding(
+                        padding: EdgeInsets.only(top: .5.h),
+                        child: Icon(
+                          Icons.circle,
+                          size: 1.h,
+                        ),
                       ),
                       SizedBox(width: 2.h),
-                      Text(
-                        e,
-                        style: TextStyle(
-                          fontSize: 13.5.sp,
-                          fontWeight: FontWeight.w500,
+                      Expanded(
+                        child: Text(
+                          e,
+                          style: TextStyle(
+                            fontSize: 13.5.sp,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ),
                     ],
@@ -129,10 +137,7 @@ class ResultsTile extends StatelessWidget {
             children: results
                 .map((e) => e.toWidget(() {
                       if (e.location == DeployedLocation.preview) {
-                        AppRouter.navigatorKey.currentState!.push(
-                            MaterialPageRoute(
-                                builder: (_) =>
-                                    SingleProjectScreen(id: e.appLink)));
+                        ProjectModel.moveToProject(e.appLink);
                       } else {
                         launchUrl(Uri.parse(e.appLink));
                       }
