@@ -1,18 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/util/app_router.dart';
 import 'package:portfolio/util/fluro_router.dart';
-import 'package:portfolio/util/models/nav_index_provider.dart';
-import 'package:portfolio/widgets/screen_background.dart';
-import 'package:provider/provider.dart';
+import 'package:portfolio/widgets/app_background.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 void main() {
-  runApp(MultiProvider(
-    providers: [
-      ListenableProvider(create: (context) => NavIndexProvider()),
-    ],
-    child: MyApp(),
-  ));
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -29,7 +22,9 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         navigatorKey: AppRouter.navigatorKey,
-        builder: (context, child) => ScreenBackground(child: child!),
+        builder: (context, child) {
+          return AppBackground(child: child);
+        },
         initialRoute: '/',
         onGenerateRoute: Flurorouter.router.generator,
       );

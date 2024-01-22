@@ -11,6 +11,8 @@ My portfolio website built using flutter web
 
 ## Design credits
 
+[Flags From](https://github.com/hampusborgos/country-flags/tree/main)
+
 <a target="_blank" href="https://dribbble.com/shots/15286150-Portfolio-home-page">UI Design Inspiration</a>
 
 <a target="_blank" href="https://icons8.com/icon/L1ws9zn2uD01/google-play-store">Google Play Store</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
@@ -24,3 +26,4 @@ My portfolio website built using flutter web
 ## Features
 - [ ] Lazy loading
 - [x] Interactive Widgets
+

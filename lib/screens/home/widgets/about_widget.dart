@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/util/constants/app_colors.dart';
+import 'package:portfolio/util/constants/app_strings.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class AboutWidget extends StatelessWidget {
@@ -6,51 +8,53 @@ class AboutWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double size;
-    if (Device.width < 500) {
-      size = 60.w;
-    } else if (Device.width >= 500 && Device.width < 750) {
-      size = 45.w;
-    } else {
-      size = 50.h;
-    }
-    return SizedBox(
-      width: size,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "Hi, I'm Anthony Aniobi",
-            style: TextStyle(
-                fontSize: 19.sp,
-                fontWeight: FontWeight.w700,
-                color: Colors.white,
-                fontFamily: 'AbrilFatface'),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Text(
+          welcome,
+          style: TextStyle(
+            fontSize: 30.sp,
+            fontWeight: FontWeight.w100,
+            color: Colors.white,
           ),
-          SizedBox(height: 2.5.h),
-          Text(
-            "Senior Mobile Developer",
-            style: TextStyle(
-                fontSize: 15.sp,
-                fontWeight: FontWeight.w700,
-                color: Colors.white,
-                fontFamily: 'AbrilFatface'),
-          ),
-          SizedBox(height: 2.h),
-          Text(
-            """
-5 years experience as a programmer with 4 years as a mobile developer with experience building both native and crossplatform mobile applications.
-I am conversant with building native applications in Kotlin and Swift as well as in crossplatform framework like flutter.
-""",
-            style: TextStyle(
-              fontSize: 13.sp,
-              fontWeight: FontWeight.w500,
-              color: Colors.white,
+        ),
+        IntrinsicHeight(
+          child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            Column(
+              children: [
+                Expanded(
+                  child: Container(
+                      width: 6.sp, height: 2.h, color: AppColors.gold),
+                ),
+                Expanded(
+                  child: Container(
+                    width: 6.sp,
+                    height: 2.h,
+                    decoration: const BoxDecoration(
+                      gradient: AppColors.goldSilverVertical,
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ),
-        ],
-      ),
+            SizedBox(width: 10.sp),
+            Expanded(
+              child: Text(
+                homeMsg,
+                textAlign: TextAlign.justify,
+                style: TextStyle(
+                  fontSize: 12.5.sp,
+                  fontWeight: FontWeight.w300,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ]),
+        ),
+      ],
     );
   }
 }

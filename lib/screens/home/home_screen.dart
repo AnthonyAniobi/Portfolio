@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/screens/home/widgets/about_widget.dart';
-import 'package:portfolio/screens/home/widgets/skill_widget.dart';
+import 'package:portfolio/screens/home/widgets/menu_widget.dart';
+import 'package:portfolio/util/num_extension.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -10,36 +11,45 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 4.w),
-      child: SingleChildScrollView(
-        child: Column(
+    return LayoutBuilder(builder: (context, constraints) {
+      if (Device.width < 500) {
+        // mobile header
+        return Column(
           children: [
             SizedBox(height: 10.h),
-            LayoutBuilder(builder: (context, constraints) {
-              if (Device.width < 500) {
-                // mobile header
-                return Column(
-                  children: [const AboutWidget(), SkillWidget()],
-                );
-              } else if (Device.width >= 500 && Device.width < 750) {
-                // tablet header
-                return Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [const AboutWidget(), SkillWidget()],
-                );
-              } else {
-                // tablet header
-                return Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [const AboutWidget(), SkillWidget()],
-                );
-              }
-            }),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 2.w),
+              child: const AboutWidget(),
+            ),
+            const MenuWidget(),
             SizedBox(height: 10.h),
           ],
-        ),
-      ),
-    );
+        );
+      } else if (Device.width >= 500 && Device.width < 1050) {
+        // tablet header
+        return Padding(
+          padding: EdgeInsets.symmetric(horizontal: 5.spMin.toDouble()),
+          child: Row(
+            children: [
+              const Expanded(child: AboutWidget()),
+              SizedBox(width: 10.w),
+              const MenuWidget(),
+            ],
+          ),
+        );
+      } else {
+        // tablet header
+        return Padding(
+          padding: EdgeInsets.symmetric(horizontal: 10.w),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SizedBox(width: 50.w, child: const AboutWidget()),
+              const MenuWidget(),
+            ],
+          ),
+        );
+      }
+    });
   }
 }

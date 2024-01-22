@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
 import 'package:portfolio/screens/education/education_screen.dart';
 import 'package:portfolio/screens/home/home_screen.dart';
+import 'package:portfolio/screens/mobile_projects/mobile_project_screen.dart';
 import 'package:portfolio/screens/personal_projects/personal_projects_screen.dart';
 import 'package:portfolio/screens/personal_projects/single_project_screen.dart';
 import 'package:portfolio/screens/work_experience/work_experience_screen.dart';
@@ -14,6 +14,9 @@ class Flurorouter {
 
   static final Handler _homeHandler = Handler(
     handlerFunc: (context, parameters) => const HomeScreen(),
+  );
+  static final Handler _mobileProjectHandler = Handler(
+    handlerFunc: (context, parameters) => const MobileProjectScreen(),
   );
   static final Handler _educationHandler = Handler(
     handlerFunc: (context, parameters) => const EducationScreen(),
@@ -34,6 +37,11 @@ class Flurorouter {
     router.define(
       HomeScreen.routeName,
       handler: _homeHandler,
+      transitionType: TransitionType.fadeIn,
+    );
+    router.define(
+      MobileProjectScreen.routeName,
+      handler: _mobileProjectHandler,
       transitionType: TransitionType.fadeIn,
     );
     router.define(

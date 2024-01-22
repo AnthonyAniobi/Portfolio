@@ -1,7 +1,19 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const white = Colors.white;
+  static const Color white = Color(0xFFFFFFFF);
+  static const Color black = Color(0xFF1c1c24);
+  static const Color gold = Color(0xFFffd700);
+  static const Color silver = Color(0xFFc0c0c0);
+
+  static const LinearGradient goldSilverVertical = LinearGradient(
+      colors: [gold, silver],
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter);
+  static const LinearGradient goldSilverHorizontal = LinearGradient(
+      colors: [gold, silver],
+      begin: Alignment.centerLeft,
+      end: Alignment.centerRight);
 
   static const List<Color> primaryColors = [
     Colors.indigo,

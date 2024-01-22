@@ -6,7 +6,6 @@ import 'package:portfolio/screens/work_experience/work_experience_screen.dart';
 import 'package:portfolio/util/app_router.dart';
 import 'package:portfolio/util/constants/app_colors.dart';
 import 'package:portfolio/util/fluro_router.dart';
-import 'package:portfolio/util/models/nav_index_provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class TopNavbar extends StatefulWidget {

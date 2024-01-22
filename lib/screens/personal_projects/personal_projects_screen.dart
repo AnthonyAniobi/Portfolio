@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:portfolio/screens/personal_projects/single_project_screen.dart';
 import 'package:portfolio/screens/personal_projects/widgets/project_card.dart';
 import 'package:portfolio/util/fluro_router.dart';
@@ -48,15 +47,12 @@ class PersonalProjectsScreen extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: margin),
               child: SingleChildScrollView(
-                child: StaggeredGrid.count(
+                child: GridView.count(
                   crossAxisCount: 4,
                   mainAxisSpacing: 1.8.w,
                   crossAxisSpacing: 1.8.w,
                   children: ProjectModel.all
-                      .mapIndexed((index, project) => StaggeredGridTile.count(
-                          crossAxisCellCount: 2,
-                          mainAxisCellCount: isExpanded(index) ? 3 : 2,
-                          child: InkWell(
+                      .mapIndexed((index, project) => InkWell(
                             onTap: () {
                               Flurorouter.moveTo(
                                   "${SingleProjectScreen.routeName}/$index");
@@ -64,7 +60,7 @@ class PersonalProjectsScreen extends StatelessWidget {
                             child: ProjectTile(
                               project: project,
                             ),
-                          )))
+                          ))
                       .toList(),
                 ),
               ),
