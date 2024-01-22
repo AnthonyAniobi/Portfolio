@@ -12,6 +12,7 @@ My portfolio website built using flutter web
 ## Design credits
 
 [Flags From](https://github.com/hampusborgos/country-flags/tree/main)
+[3d Earth Shape](https://github.com/RenatoLucasMota/earth_3D_flutter/tree/main)
 
 <a target="_blank" href="https://dribbble.com/shots/15286150-Portfolio-home-page">UI Design Inspiration</a>
 
