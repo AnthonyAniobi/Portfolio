@@ -1,6 +1,4 @@
-import 'package:portfolio/screens/personal_projects/single_project_screen.dart';
 import 'package:portfolio/util/app_enums.dart';
-import 'package:portfolio/util/fluro_router.dart';
 import 'package:portfolio/util/models/image_link_model.dart';
 
 class ProjectModel {
@@ -383,14 +381,4 @@ Application for getting nigerian food recipes
                   appName: "Nigerian Cuisine"),
             ])
       ];
-
-  static void moveToProject(String name) {
-    int index = 0;
-    for (int i = 0; i < all.length; i++) {
-      if (name == all[i].name) {
-        index = i;
-        Flurorouter.moveTo("${SingleProjectScreen.routeName}/$index");
-      }
-    }
-  }
 }

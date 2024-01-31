@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/util/app_enums.dart';
-import 'package:portfolio/util/app_router.dart';
 import 'package:portfolio/util/models/image_link_model.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 extension ImageLinkToWidget on ImageLinkModel {
   Widget toWidget(Function onPressed) {

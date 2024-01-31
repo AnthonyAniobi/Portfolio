@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/util/app_router.dart';
 import 'package:portfolio/util/fluro_router.dart';
 import 'package:portfolio/widgets/app_background.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -21,7 +20,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        navigatorKey: AppRouter.navigatorKey,
+        navigatorKey: Flurorouter.navigatorKey,
         builder: (context, child) {
           return AppBackground(child: child);
         },

@@ -1,14 +1,15 @@
 import 'package:fluro/fluro.dart';
-import 'package:portfolio/screens/education/education_screen.dart';
+import 'package:flutter/material.dart';
+import 'package:portfolio/screens/blog/blog_screen.dart';
+import 'package:portfolio/screens/contact/contact_screen.dart';
 import 'package:portfolio/screens/home/home_screen.dart';
 import 'package:portfolio/screens/mobile_projects/mobile_project_screen.dart';
-import 'package:portfolio/screens/personal_projects/personal_projects_screen.dart';
-import 'package:portfolio/screens/personal_projects/single_project_screen.dart';
-import 'package:portfolio/screens/work_experience/work_experience_screen.dart';
-import 'package:portfolio/util/app_router.dart';
+import 'package:portfolio/screens/open_source_projects/open_source_project_screen.dart';
+import 'package:portfolio/screens/videos/video_screen.dart';
 
 class Flurorouter {
   static final FluroRouter router = FluroRouter();
+  static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
   static String currentRoute = '/';
 
@@ -18,19 +19,17 @@ class Flurorouter {
   static final Handler _mobileProjectHandler = Handler(
     handlerFunc: (context, parameters) => const MobileProjectScreen(),
   );
-  static final Handler _educationHandler = Handler(
-    handlerFunc: (context, parameters) => const EducationScreen(),
+  static final Handler _openSourceProjectHandler = Handler(
+    handlerFunc: (context, parameters) => const OpenSourceProjectScreen(),
   );
-  static final Handler _experienceHandler = Handler(
-    handlerFunc: (context, parameters) => const WorkExperienceScreen(),
+  static final Handler _blogHandler = Handler(
+    handlerFunc: (context, parameters) => const BlogScreen(),
   );
-  static final Handler _projectHandler = Handler(
-    handlerFunc: (context, parameters) => const PersonalProjectsScreen(),
+  static final Handler _videoHandler = Handler(
+    handlerFunc: (context, parameters) => const VideoScreen(),
   );
-  static final Handler _singleProjectHandler = Handler(
-    handlerFunc: (context, parameters) => SingleProjectScreen(
-      id: parameters['id']!.first,
-    ),
+  static final Handler _contactHandler = Handler(
+    handlerFunc: (context, parameters) => const ContactScreen(),
   );
 
   static void setupRouter() {
@@ -45,29 +44,29 @@ class Flurorouter {
       transitionType: TransitionType.fadeIn,
     );
     router.define(
-      EducationScreen.routeName,
-      handler: _educationHandler,
+      OpenSourceProjectScreen.routeName,
+      handler: _openSourceProjectHandler,
       transitionType: TransitionType.fadeIn,
     );
     router.define(
-      PersonalProjectsScreen.routeName,
-      handler: _projectHandler,
+      BlogScreen.routeName,
+      handler: _blogHandler,
       transitionType: TransitionType.fadeIn,
     );
     router.define(
-      WorkExperienceScreen.routeName,
-      handler: _experienceHandler,
+      VideoScreen.routeName,
+      handler: _videoHandler,
       transitionType: TransitionType.fadeIn,
     );
     router.define(
-      "${SingleProjectScreen.routeName}/:id",
-      handler: _singleProjectHandler,
+      ContactScreen.routeName,
+      handler: _contactHandler,
       transitionType: TransitionType.fadeIn,
     );
   }
 
   static void moveTo(String path) {
     currentRoute = path;
-    router.navigateTo(AppRouter.navigatorKey.currentContext!, path);
+    router.navigateTo(navigatorKey.currentContext!, path);
   }
 }

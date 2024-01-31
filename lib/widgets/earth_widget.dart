@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cube/flutter_cube.dart';
-import 'package:portfolio/util/num_extension.dart';
 
 class EarthWidget extends StatefulWidget {
   const EarthWidget({

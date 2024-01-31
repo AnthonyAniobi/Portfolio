@@ -56,22 +56,6 @@ class AppText {
         ),
       );
 
-  static Text sp22(String text) => Text(
-        text,
-        style: TextStyle(
-          fontSize: 22.sp,
-          fontWeight: FontWeight.w500,
-          color: AppColors.black,
-        ),
-      );
-  static Text sp19(String text) => Text(
-        text,
-        style: TextStyle(
-          fontSize: 19.sp,
-          fontWeight: FontWeight.w500,
-          color: AppColors.black,
-        ),
-      );
   static Text sp20(String text) => Text(
         text,
         style: TextStyle(
@@ -163,6 +147,8 @@ extension HtTextExtensions on Text {
   Text get black => copyWith(style: style?.copyWith(color: AppColors.black));
 
   Text get centerText => copyWith(textAlign: TextAlign.center);
+  Text get w100 =>
+      copyWith(style: style?.copyWith(fontWeight: FontWeight.w100));
   Text get w300 =>
       copyWith(style: style?.copyWith(fontWeight: FontWeight.w300));
   Text get w400 =>
