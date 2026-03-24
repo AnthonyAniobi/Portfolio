@@ -30,6 +30,7 @@ class MyApp extends StatelessWidget {
         ),
         navigatorKey: AppRouter.navigatorKey,
         builder: (context, child) => ScreenBackground(child: child!),
+        debugShowCheckedModeBanner: false,
         initialRoute: '/',
         onGenerateRoute: Flurorouter.router.generator,
       );
