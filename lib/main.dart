@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/util/app_router.dart';
+import 'package:portfolio/pages/portfolio_page.dart';
+import 'package:portfolio/theme/app_theme.dart';
 import 'package:portfolio/util/fluro_router.dart';
 import 'package:portfolio/util/models/nav_index_provider.dart';
-import 'package:portfolio/widgets/screen_background.dart';
 import 'package:provider/provider.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
 
 void main() {
   runApp(MultiProvider(
@@ -22,17 +21,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ResponsiveSizer(builder: (context, orientation, screenType) {
-      return MaterialApp(
-        title: 'Portfolio',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        navigatorKey: AppRouter.navigatorKey,
-        builder: (context, child) => ScreenBackground(child: child!),
-        initialRoute: '/',
-        onGenerateRoute: Flurorouter.router.generator,
-      );
-    });
+    return MaterialApp(
+      title: 'Anthony Aniobi | Flutter Developer',
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.darkTheme,
+      home: const PortfolioPage(),
+    );
   }
 }
