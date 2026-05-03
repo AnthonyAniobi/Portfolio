@@ -53,7 +53,7 @@ final List<ProjectModel> projects = [
         'A fully-featured instant loan application with seamless UX, real-time processing, and secure financial data handling.',
     role: 'Solo Developer',
     type: 'Fintech App',
-    link: 'https://play.google.com',
+    link: 'https://play.google.com/store/apps/details?id=com.credility.crednow',
     tags: ['Flutter', 'Django', 'Fintech', 'REST API'],
   ),
   ProjectModel(
@@ -62,7 +62,7 @@ final List<ProjectModel> projects = [
         'Instant loan platform built for speed and reliability. Handles thousands of users with smooth onboarding and loan disbursement flows.',
     role: 'Solo Developer',
     type: 'Fintech App',
-    link: 'https://play.google.com',
+    link: 'https://play.google.com/store/apps/details?id=com.credility.cashgo',
     tags: ['Flutter', 'Django', 'Payment Integration'],
   ),
   ProjectModel(
@@ -71,7 +71,7 @@ final List<ProjectModel> projects = [
         'A full-featured dating application with real-time video calling, voice chat, and messaging powered by WebRTC and WebSockets.',
     role: 'Solo Developer',
     type: 'Social App',
-    link: 'https://play.google.com',
+    link: 'https://play.google.com/store/apps/details?id=com.getdrench.com',
     tags: ['Flutter', 'WebRTC', 'WebSocket', 'Real-time'],
   ),
   ProjectModel(
@@ -80,7 +80,8 @@ final List<ProjectModel> projects = [
         'AI-powered soil testing and recommendation application. Helps farmers make data-driven decisions for optimal crop yield.',
     role: 'Mobile Developer',
     type: 'AI / AgriTech',
-    link: 'https://play.google.com',
+    link:
+        'https://play.google.com/store/apps/details?id=com.projectify.farminelligence',
     tags: ['Flutter', 'AI/ML', 'AgriTech'],
     isTeam: true,
   ),
@@ -90,8 +91,18 @@ final List<ProjectModel> projects = [
         'A two-player combat game built entirely in Flutter using the Flame engine. Features custom character animations and game physics.',
     role: 'Solo Developer',
     type: 'Game',
-    link: 'https://play.google.com',
+    link:
+        'https://play.google.com/store/apps/details?id=com.anonsoft.fighting_game',
     tags: ['Flutter', 'Flame Engine', 'Game Dev'],
+  ),
+  ProjectModel(
+    title: 'OYA ONE MORE GAME',
+    description:
+        'A game of luck built based on the board game with support for real-time multiplayer matches and in-app purchases. Developed using Flutter and Firebase.',
+    role: 'Mobile Developer',
+    type: 'Game',
+    link: 'https://play.google.com/store/apps/details?id=com.oyaonemore.game',
+    tags: ['Flutter', 'Game Dev', 'Firebase', 'Multiplayer'],
   ),
   ProjectModel(
     title: 'CHESS',
@@ -99,19 +110,20 @@ final List<ProjectModel> projects = [
         'Global multiplayer chess game with real-time matchmaking, ELO ranking system, and cross-platform support.',
     role: 'Solo Developer',
     type: 'Game',
-    link: 'https://play.google.com',
-    tags: ['Flutter', 'Nakama', 'Multiplayer', 'WebSocket'],
+    link:
+        'https://play.google.com/store/apps/details?id=org.anonglobal.chess_game',
+    tags: ['Flutter', 'Supabase', 'Multiplayer', 'WebSocket'],
   ),
-  ProjectModel(
-    title: 'AISERWAVE',
-    description:
-        'SaaS platform for end-to-end event management. Features ticketing, attendee management, analytics dashboards and payment flows.',
-    role: 'Senior Developer',
-    type: 'SaaS Platform',
-    link: 'https://play.google.com',
-    tags: ['Flutter', 'Django', 'SaaS', 'Full-Stack'],
-    isTeam: true,
-  ),
+  // ProjectModel(
+  //   title: 'AISERWAVE',
+  //   description:
+  //       'SaaS platform for end-to-end event management. Features ticketing, attendee management, analytics dashboards and payment flows.',
+  //   role: 'Senior Developer',
+  //   type: 'SaaS Platform',
+  //   link: 'https://play.google.com',
+  //   tags: ['Flutter', 'Django', 'SaaS', 'Full-Stack'],
+  //   isTeam: true,
+  // ),
   ProjectModel(
     title: '7-DAY GAME CHALLENGE',
     description:
@@ -207,6 +219,10 @@ final List<SkillCategory> skillCategories = [
   SkillCategory(
     category: 'Open Source',
     icon: '📦',
-    skills: ['Date Format Field', 'Dynamic Carousel', 'API Server (Desktop App)'],
+    skills: [
+      'Date Format Field',
+      'Dynamic Carousel',
+      'API Server (Desktop App)'
+    ],
   ),
 ];
